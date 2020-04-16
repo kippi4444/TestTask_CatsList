@@ -1,0 +1,79 @@
+
+.content{
+  margin: 0 10%;
+  background-color: rgba(245, 59, 59, 0.09);
+  display: grid;
+  grid-template-columns: 300px auto ;
+  grid-gap: 5px;
+  height: 600px;
+  border-radius: 5px;
+  box-shadow: 0 0 3px #8d8d8d;
+}
+
+.pet_list{
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
+  overflow-x: hidden;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.pet{
+  margin: 5px 0;
+  background-color: white;
+  border-radius: 5px;
+  padding: 5px;
+  position: relative;
+
+  .btn{
+    position: absolute;
+    display: block;
+    right: 5px;
+    width: 12px;
+    height: 12px;
+  }
+
+  .del{
+    border-radius: 50%;
+    background-color: rgba(128, 0, 4, 0.42);
+    transition: .2s ease-in;
+    &:hover{
+      background-image: url("../../img/kick.png");
+      background-size: contain;
+      border-radius: 0;
+      background-color: #fff;
+    }
+  }
+
+  .return{
+    border-radius: 50%;
+    background-color: rgba(40, 128, 1, 0.42);
+    transition: .2s ease-out;
+    &:hover{
+      background-image: url("../../img/return.png");
+      background-size: contain;
+      width: 15px;
+      height: 15px;
+      border-radius: 0;
+      background-color: #d3d3d3;
+    }
+  }
+}
+
+.information{
+  margin: 5px;
+  padding: 5px;
+  border-radius: 5px;
+  background-image: linear-gradient(0deg, #ffe0f8, #f8e9cf);
+}
+
+
+.active{
+  border: 2px solid #800004;
+  outline: none;
+}
+
+.deleted{
+  background-color: #d3d3d3;
+}

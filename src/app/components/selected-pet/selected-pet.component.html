@@ -1,0 +1,14 @@
+<div *ngIf="shortInfo && selectedPet">
+  <div class="all_information">
+    <div>
+      <h1>{{shortInfo.name}}</h1>
+      <h3>{{shortInfo.shortInfo}}</h3>
+    </div>
+    <div>
+      <img src="https://www.mrsoft.by/tz20/{{selectedPet.pic}}" alt="{{shortInfo.name}}">
+    </div>
+  </div>
+
+  <p>{{selectedPet.bio}}</p>
+
+</div>
