@@ -30,14 +30,14 @@ export class PetCatalogComponent implements OnInit, OnChanges {
     const input = fromEvent(document.querySelector('#searching'), 'input');
     input.pipe(
       debounceTime( 300),
-      map(event => event.target.value),
+      map(event =>  event.target as HTMLInputElement),
       distinctUntilChanged(),
     )
-      .subscribe(value => {
+      .subscribe(target => {
         this.searching = true;
-        const reg = new RegExp('^' + value + '\\.*', 'i');
+        const reg = new RegExp('^' + target.value + '\\.*', 'i');
         this.allPets = this.bufferPets.filter(pet => pet.name.match(reg));
-        if (!value) {
+        if (!target.value) {
           this.searching = false;
           this.allPets = [...this.bufferPets];
         }
