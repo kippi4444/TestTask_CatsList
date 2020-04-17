@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
+    "proxy": "node proxyServer.js",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
@@ -42,6 +43,7 @@
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.15.0",
+    "express": "^4.17.1",
     "typescript": "~3.5.3"
   }
 }

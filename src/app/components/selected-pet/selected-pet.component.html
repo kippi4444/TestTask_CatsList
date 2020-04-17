@@ -1,4 +1,4 @@
-<div *ngIf="shortInfo && selectedPet">
+<div *ngIf="shortInfo && selectedPet; else loading">
   <div class="all_information">
     <div>
       <h1>{{shortInfo.name}}</h1>
@@ -12,3 +12,8 @@
   <p>{{selectedPet.bio}}</p>
 
 </div>
+<ng-template #loading>
+  <div class="loading">
+    <div class='loader'></div>
+  </div>
+</ng-template>

@@ -2,7 +2,7 @@
 <div class="content" >
   <div class="pet_list" >
     <input type="text" id="searching" (click)="search()" placeholder="Search...">
-    <div *ngIf="allPets?.length; else nothing">
+    <div *ngIf="allPets?.length">
       <div class="pet" *ngFor="let pet of allPets" routerLink="{{pet.id}}" routerLinkActive='active'>
         <a class="btn del" (click)="delete(pet)"></a>
         <h3>{{pet.name}}</h3>
@@ -17,10 +17,10 @@
         <h5>Deleted: {{deletedPet.date | date: 'dd.MM.yyyy HH:mm:ss'}}</h5>
       </div>
     </div>
-    <ng-template #nothing>
-      <h3>Упс... ничего не найдено.</h3>
-      Возможно Вы его удалили....
-    </ng-template>
+    <div *ngIf="!allPets?.length && searching">
+      <h3>Oooops... Not Found.</h3>
+      <small>May be you deleted it...</small>
+    </div>
   </div>
   <div class="information">
     <router-outlet></router-outlet>

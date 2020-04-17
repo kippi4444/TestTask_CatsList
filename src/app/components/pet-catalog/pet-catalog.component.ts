@@ -30,8 +30,7 @@ export class PetCatalogComponent implements OnInit, OnChanges {
     const input = fromEvent(document.querySelector('#searching'), 'input');
     input.pipe(
       debounceTime( 300),
-      map(event =>  event.target as HTMLInputElement),
-      distinctUntilChanged(),
+      map(event =>  event.target as HTMLInputElement)
     )
       .subscribe(target => {
         this.searching = true;

@@ -9,14 +9,13 @@ import {PetInfo} from '../interfaces/PetInfo';
   providedIn: 'root'
 })
 export class PetService {
-
-  private petUrl = 'https://mrsoft.by/tz20/';
-  private url = '/assets/mock/';
+  // http://localhost:3000/?url= Если запускать локальный сервер (npm run proxy)
+  private petUrl = 'https://cors-anywhere.herokuapp.com/https://mrsoft.by/tz20';
   allPets: Pet[];
   constructor(private http: HttpClient) { }
 
   getPetList() {
-    return this.http.get<PetList>(this.url + 'list.json').pipe(
+    return this.http.get<PetList>(this.petUrl + '/list.json').pipe(
         map(value => {
           this.allPets = value.data;
           return value.data;
@@ -25,11 +24,11 @@ export class PetService {
   }
 
   getSelectedPetList(link) {
-    return this.http.get<PetInfo>(this.url + 'cats/' + link + '.json').pipe(map(value => value));
+    return this.http.get<PetInfo>(this.petUrl + '/cats/' + link + '.json').pipe(map(value => value));
   }
 
   selectedPet(pet) {
-      return this.allPets.find(pets => pets.id === +pet);
+    return this.allPets.find(pets => pets.id === +pet);
   }
 
 }
